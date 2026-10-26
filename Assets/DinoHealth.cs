@@ -3,11 +3,30 @@ using UnityEngine;
 public class DinoHealth : MonoBehaviour
 {
     [Header("Health Settings")]
-    public float maxHealth = 50f;
+    private float maxHealth;
     private float currentHealth;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        switch(gameObject.tag) {
+            case "TankDino":
+            maxHealth = 100f;
+            break;
+
+            case "Dino":
+            maxHealth = 50f;
+            break;
+
+            case "SpeedDino":
+            maxHealth = 25f;
+            break;
+
+            default:
+            Debug.LogWarning($"Tag {gameObject.tag} not recognized.");
+            maxHealth = 100f;
+            break;
+        }
+
         currentHealth = maxHealth;
     }
 

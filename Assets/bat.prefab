@@ -157,7 +157,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BatDamage
   damageAmount: 25
-  enemyTag: Dino
+  enemyTag:
+  - Dino
+  - TankDino
+  - SpeedDino
 --- !u!114 &-7384863389659706061
 MonoBehaviour:
   m_ObjectHideFlags: 0

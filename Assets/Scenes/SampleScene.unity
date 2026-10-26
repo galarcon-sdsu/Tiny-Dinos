@@ -327,6 +327,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DinoSpawner
   prefabToSpawn: {fileID: 1077062825405499691, guid: 60263b0d17f1c4ecdb94090ce42b8f90, type: 3}
   spawnInterval: 3
+--- !u!1001 &3394682577812890183
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1039429342832290922, guid: a695646484acc41c0bdeca844e202213, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039429342832290922, guid: a695646484acc41c0bdeca844e202213, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039429342832290922, guid: a695646484acc41c0bdeca844e202213, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039429342832290922, guid: a695646484acc41c0bdeca844e202213, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039429342832290922, guid: a695646484acc41c0bdeca844e202213, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039429342832290922, guid: a695646484acc41c0bdeca844e202213, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039429342832290922, guid: a695646484acc41c0bdeca844e202213, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039429342832290922, guid: a695646484acc41c0bdeca844e202213, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039429342832290922, guid: a695646484acc41c0bdeca844e202213, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039429342832290922, guid: a695646484acc41c0bdeca844e202213, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780351636498791428, guid: a695646484acc41c0bdeca844e202213, type: 3}
+      propertyPath: m_Name
+      value: BaseballTurret
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a695646484acc41c0bdeca844e202213, type: 3}
 --- !u!1001 &4154125384375771421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -538,3 +595,4 @@ SceneRoots:
   - {fileID: 4565264672499503041}
   - {fileID: 4154125384375771421}
   - {fileID: 8874438124509290372}
+  - {fileID: 3394682577812890183}

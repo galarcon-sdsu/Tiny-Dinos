@@ -3,7 +3,7 @@ using UnityEngine;
 public class DinoPathing : MonoBehaviour
 {
     [Header("Path Settings")]
-    [SerializeField] private float moveSpeed = 5f;
+    private float moveSpeed;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float waypointTolerance = 0.1f;
 
@@ -15,6 +15,24 @@ public class DinoPathing : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        switch(gameObject.tag) {
+            case "TankDino":
+            moveSpeed = 2f;
+            break;
+
+            case "Dino":
+            moveSpeed = 5f;
+            break;
+
+            case "SpeedDino":
+            moveSpeed = 10f;
+            break;
+
+            default:
+            Debug.LogWarning($"Tag {gameObject.tag} not recognized.");
+            moveSpeed = 5f;
+            break;
+        }
         SetupPath();
     }
 
