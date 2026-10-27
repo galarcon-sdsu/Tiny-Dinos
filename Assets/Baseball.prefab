@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1eb45f2110741e5ba73f2e67bf48f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseballDamage
-  damageAmount: 25
+  damageAmount: 15
   enemyTag:
   - Dino
   - TankDino

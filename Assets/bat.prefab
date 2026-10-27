@@ -173,4 +173,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7044551367ec74ba39448aeddf9d31a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BatBehavior
-  rotationSpeed: {x: 0, y: 0, z: 75}
+  rotationSpeed: {x: 0, y: 0, z: 0}

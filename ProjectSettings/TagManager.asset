@@ -7,11 +7,12 @@ TagManager:
   - Dino
   - TankDino
   - SpeedDino
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Terrain
   - Water
   - UI
   - 

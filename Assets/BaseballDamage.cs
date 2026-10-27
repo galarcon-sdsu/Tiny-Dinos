@@ -1,10 +1,22 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class BaseballDamage : MonoBehaviour
-{
+{   
+    public GoldCounter goldCounter;
     [Header("Baseball Damage Settings")]
     public float damageAmount = 15f;
     public string[] enemyTag = {"Dino", "TankDino", "SpeedDino"};
+
+    
+
+
+    void Start() {
+        GameObject goldGO = GameObject.Find("Gold");
+
+        goldCounter = goldGO.GetComponent<GoldCounter>();
+    }
 
     private void OnTriggerEnter(Collider other) {
         if (isValidTag(other)) {
@@ -13,6 +25,7 @@ public class BaseballDamage : MonoBehaviour
 
             if (enemy != null) {
                 enemy.TakeDamage(damageAmount);
+                goldCounter.gold += 20;
                 Destroy(gameObject);
             }
         }
