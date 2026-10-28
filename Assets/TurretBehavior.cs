@@ -8,6 +8,13 @@ public class TurretBehavior : MonoBehaviour
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float scanInterval = 0.2f;
 
+    [Header("Upgrade Settings")]
+    public string towerName = "Turret";
+    public int upgradeLevel = 1;
+    public int upgradeCost = 100;
+    public GoldCounter goldCounter;
+    public BaseballDamage ballDam;
+
     [Header("Debug")]
     [SerializeField] private Transform currentTarget;
 
@@ -19,7 +26,7 @@ public class TurretBehavior : MonoBehaviour
     public Transform firePoint;
 
     [Tooltip("Time in seconds between fire")]
-    public float fireInterval = 1.0f;
+    public float fireInterval = 1.5f;
 
     [Header("Launch Settings")]
     [Tooltip("Speed at which the projectile is launched")]
@@ -31,6 +38,14 @@ public class TurretBehavior : MonoBehaviour
     private float timer;
     private readonly List<string> enemyTags = new List<string> {"Dino", "TankDino", "SpeedDino"};
     private float scanTimer;
+
+    void Start() {
+        GameObject goldGO = GameObject.Find("Gold");
+
+        goldCounter = goldGO.GetComponent<GoldCounter>();
+        
+        ballDam = projectilePrefab.GetComponent<BaseballDamage>();
+    }
 
     void Update()
     {
@@ -96,8 +111,21 @@ public class TurretBehavior : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRadius);
+    private void OnMouseDown() {
+        TurretUpgradeUIManager.Instance.OpenUpgradeMenu(this);
+    }
+
+    public void Upgrade() {
+        if (goldCounter.gold >= upgradeCost) {
+            upgradeLevel++;
+
+            upgradeCost += 50;
+            
+            ballDam.damageAmount += 10;
+            fireInterval -= 0.3f;
+
+            goldCounter.gold -= upgradeCost;
+            Debug.Log("Upgraded turret tower");
+        }
     }
 }
