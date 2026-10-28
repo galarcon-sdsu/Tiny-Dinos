@@ -4,6 +4,8 @@ public class DinoPathing : MonoBehaviour
 {
     [Header("Path Settings")]
     private float moveSpeed;
+    public BaseHealth healthCounter;
+    public DinoHealth currHealth;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float waypointTolerance = 0.1f;
 
@@ -15,6 +17,10 @@ public class DinoPathing : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        GameObject healthGO = GameObject.Find("Health");
+        healthCounter = healthGO.GetComponent<BaseHealth>();
+        currHealth = gameObject.GetComponent<DinoHealth>();
         switch(gameObject.tag) {
             case "TankDino":
             moveSpeed = 2f;
@@ -99,6 +105,8 @@ public class DinoPathing : MonoBehaviour
 
     private void OnPathComplete() {
         Debug.Log($"{gameObject.name} reached the end of the path");
+        
+        healthCounter.health -= currHealth.currentHealth;
         Destroy(this.gameObject);
     }
 }

@@ -4,7 +4,7 @@ public class BatDamage : MonoBehaviour
 {
     public GoldCounter goldCounter;
     [Header("Bat Damage Settings")]
-    public float damageAmount = 25f;
+    public int damageAmount = 25;
     public string[] enemyTag = {"Dino", "TankDino", "SpeedDino"};
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 

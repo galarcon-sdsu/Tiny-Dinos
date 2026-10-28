@@ -6,7 +6,7 @@ public class BaseballDamage : MonoBehaviour
 {   
     public GoldCounter goldCounter;
     [Header("Baseball Damage Settings")]
-    public float damageAmount = 15f;
+    public int damageAmount = 15;
     public string[] enemyTag = {"Dino", "TankDino", "SpeedDino"};
 
     
