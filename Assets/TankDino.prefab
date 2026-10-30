@@ -108,7 +108,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -301,10 +301,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd89ef7f574f42699db85eb20b416a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DinoPathing
-  moveSpeed: 5
+  healthCounter: {fileID: 0}
+  currHealth: {fileID: 0}
   rotationSpeed: 10
   waypointTolerance: 0.1
   pathHolder: {fileID: 662072860142682544, guid: 0978c9b1eb7074f378f7ef5524226444, type: 3}
+  endFX: {fileID: 8300000, guid: ac6034ade498bb94b87620cdf6eac48b, type: 3}
 --- !u!114 &8531373434849532050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7ee2ea5cb43468e9aba28c7cae5a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DinoHealth
+  currentHealth: 275
+  deathFX: {fileID: 8300000, guid: 3b7daa41c999e47889ae9cafba569c50, type: 3}
 --- !u!135 &2678430830606267088
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -336,7 +340,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7731019228158399335
 GameObject:
@@ -446,7 +450,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

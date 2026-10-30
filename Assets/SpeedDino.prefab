@@ -413,9 +413,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd89ef7f574f42699db85eb20b416a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DinoPathing
+  healthCounter: {fileID: 0}
+  currHealth: {fileID: 0}
   rotationSpeed: 10
   waypointTolerance: 0.1
   pathHolder: {fileID: 662072860142682544, guid: 0978c9b1eb7074f378f7ef5524226444, type: 3}
+  endFX: {fileID: 8300000, guid: d9eabe89d451f4e2bbac9aac954a1c98, type: 3}
 --- !u!114 &3370119893747114464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7ee2ea5cb43468e9aba28c7cae5a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DinoHealth
+  currentHealth: 30
+  deathFX: {fileID: 8300000, guid: ba204264785f445498892f802e793baf, type: 3}
 --- !u!135 &3005691695787524876
 SphereCollider:
   m_ObjectHideFlags: 0

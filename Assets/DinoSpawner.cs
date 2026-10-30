@@ -12,17 +12,16 @@ public class DinoSpawner : MonoBehaviour
 
     void Update() {
         timer += Time.deltaTime;
-
         if (timer >= spawnInterval) {
-            SpawnPrefab();
-            timer = 0f;
+            SpawnPrefab(); //when the timer reaches the delay time it spawns the prefab
+            timer = 0f; //reset the timer for the interval reset
         }
         
     }
 
     void SpawnPrefab() {
         if (prefabToSpawn != null) {
-            Instantiate(prefabToSpawn, transform.position, transform.rotation);
+            Instantiate(prefabToSpawn, transform.position, transform.rotation); //instantiates the prefab at the gameobject this script is attached to
         }
     }
 }

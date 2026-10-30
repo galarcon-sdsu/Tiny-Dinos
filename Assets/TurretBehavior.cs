@@ -1,6 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+/*
+AI use: unlike the straightforward bat tower which just rotates.
+I had no clue where to start with tracking enemies and how it is 
+implemented to handle radius of detection and how to then move
+to the next enemy. I used the implementation given by AI to detect
+the closest enemy in its radius to avoid having to store positional
+values of how far a certain enemy was along the track and then to
+decide which would be targetted next, a distance to nearest
+object was a more understanable solution.
+*/
 public class TurretBehavior : MonoBehaviour
 {
     [Header("Targetting Settings")]
@@ -36,43 +45,41 @@ public class TurretBehavior : MonoBehaviour
     public float projectileLifetime = 3.0f;
 
     private float timer;
-    private readonly List<string> enemyTags = new List<string> {"Dino", "TankDino", "SpeedDino"};
+    private readonly List<string> enemyTags = new List<string> {"Dino", "TankDino", "SpeedDino"}; //valid tags again!
     private float scanTimer;
 
     void Start() {
         GameObject goldGO = GameObject.Find("Gold");
-
-        goldCounter = goldGO.GetComponent<GoldCounter>();
-        
+        goldCounter = goldGO.GetComponent<GoldCounter>(); //for future updating
         ballDam = projectilePrefab.GetComponent<BaseballDamage>();
     }
 
     void Update()
     {
         timer += Time.deltaTime;
-        scanTimer -= Time.deltaTime;
+        scanTimer -= Time.deltaTime; //check each interval threshhold for a new target that may appear in the radius
         if (scanTimer <= 0f) {
             FindNearestTarget();
             scanTimer = scanInterval;
         }
         
-        RotateTowardsTarget();
-        if (currentTarget != null && timer >= fireInterval) {
+        RotateTowardsTarget(); //when target exists it rotates so the tower faces it 
+        if (currentTarget != null && timer >= fireInterval) { //check if target is in range primarily and if it is time to fire
             if (timer >= fireInterval) {
-                FireProjectile();
-                timer = 0f;
+                FireProjectile(); 
+                timer = 0f; //reset timer for updating fire rate
             }
         }
     }
 
     void FindNearestTarget() {
-        Collider [] collidersInRange = Physics.OverlapSphere(transform.position, attackRadius);
+        Collider [] collidersInRange = Physics.OverlapSphere(transform.position, attackRadius); //if a collider is detected in the overlap sphere it gets marked 
         
         Transform closestEnemy = null;
         float shortestDistance = Mathf.Infinity;
 
         foreach (Collider col in collidersInRange) {
-            if (enemyTags.Contains(col.tag)) {
+            if (enemyTags.Contains(col.tag)) { //calculates the nearest of the colliders in the radius for evaluating which enemy to target
                 float distanceToEnemy = Vector3.Distance(transform.position, col.transform.position);
 
                 if (distanceToEnemy < shortestDistance) {
@@ -84,11 +91,11 @@ public class TurretBehavior : MonoBehaviour
         currentTarget = closestEnemy;
     }
 
-    void RotateTowardsTarget () {
+    void RotateTowardsTarget () { // when target is determined, gets the transform to use for where the tower should rotate to
         if (currentTarget == null) return;
 
         Vector3 direction = currentTarget.position - transform.position;
-        direction.y = 0f;
+        direction.y = 0f; 
 
         if (direction != Vector3.zero) {
             Quaternion targetRotation = Quaternion.LookRotation(direction);
@@ -97,7 +104,7 @@ public class TurretBehavior : MonoBehaviour
         }
     }
 
-    void FireProjectile() {
+    void FireProjectile() { //instantiates a baseball at the posiiton of the tower and applies force to it
         if (projectilePrefab == null || firePoint == null) {
             return;
         }
@@ -106,26 +113,22 @@ public class TurretBehavior : MonoBehaviour
         if (rb != null) {
             rb.linearVelocity = firePoint.forward * launchSpeed;
         }
-        if (projectileLifetime > 0f) {
+        if (projectileLifetime > 0f) { //if there is a lifetime set for the projectile, it will get deleted after that time
             Destroy(projectile, projectileLifetime);
         }
     }
 
-    private void OnMouseDown() {
+    private void OnMouseDown() { //detects when the game object is clicked to reveal the upgrade menu
         TurretUpgradeUIManager.Instance.OpenUpgradeMenu(this);
     }
 
-    public void Upgrade() {
+    public void Upgrade() { //when the upgrade is clicked can be afforded, it will upgrade the tower
         if (goldCounter.gold >= upgradeCost) {
             upgradeLevel++;
-
+            ballDam.damageAmount += 6; //makes it faster and more powerful
+            fireInterval -= 0.4f;
+            goldCounter.gold -= upgradeCost; //update the amount of gold held and also the upgrade cost
             upgradeCost += 50;
-            
-            ballDam.damageAmount += 10;
-            fireInterval -= 0.3f;
-
-            goldCounter.gold -= upgradeCost;
-            Debug.Log("Upgraded turret tower");
         }
     }
 }

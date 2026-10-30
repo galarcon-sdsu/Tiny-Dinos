@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+/*
+refer to turret upgrade ui manager, it is the same
+*/
 public class UpgradeUIManager : MonoBehaviour
 {
     public static UpgradeUIManager Instance {get; private set;}

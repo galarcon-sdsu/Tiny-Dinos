@@ -434,8 +434,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseballDamage
   goldCounter: {fileID: 0}
-  damageAmount: 15
+  damageAmount: 8
   enemyTag:
   - Dino
   - TankDino
   - SpeedDino
+  launchEffect: {fileID: 8300000, guid: 5338b0a2a368e44b2862568f3f005987, type: 3}
+  hitEffect: {fileID: 8300000, guid: 60d2471ccd3c546b1ab43671448dba08, type: 3}

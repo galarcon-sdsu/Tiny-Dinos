@@ -1738,7 +1738,7 @@ MonoBehaviour:
   - waveName: 1
     enemyGroups:
     - enemyPrefab: {fileID: 1077062825405499691, guid: 60263b0d17f1c4ecdb94090ce42b8f90, type: 3}
-      count: 5
+      count: 3
       spawnRate: 1
     timeBeforeNextWave: 5
   - waveName: 2
@@ -1746,21 +1746,12 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 4648265148757617418, guid: 8e22e151199bf4f5a98f5795d7bea1cf, type: 3}
       count: 3
       spawnRate: 1
-    - enemyPrefab: {fileID: 1077062825405499691, guid: 60263b0d17f1c4ecdb94090ce42b8f90, type: 3}
-      count: 10
-      spawnRate: 0.4
     timeBeforeNextWave: 5
   - waveName: 3
     enemyGroups:
     - enemyPrefab: {fileID: 5423360813244109721, guid: 4a1111cad62cf4c4d8f497cbfd89771a, type: 3}
       count: 2
       spawnRate: 1
-    - enemyPrefab: {fileID: 4648265148757617418, guid: 8e22e151199bf4f5a98f5795d7bea1cf, type: 3}
-      count: 5
-      spawnRate: 0.4
-    - enemyPrefab: {fileID: 1077062825405499691, guid: 60263b0d17f1c4ecdb94090ce42b8f90, type: 3}
-      count: 15
-      spawnRate: 0.8
     timeBeforeNextWave: 5
   spawnPoint: {fileID: 1204576865}
   endlessMode: 1
